@@ -12,6 +12,18 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var starField: SKEmitterNode!
     var player: SKSpriteNode!
+    var enemyCount = 0 {
+        didSet {
+            if enemyCount == 20 {
+                enemyInterval -= 0.1
+                enemyCount = 0
+                print("Incremented interval")
+                gameTimer?.invalidate()
+                startGameTimer()
+            }
+        }
+    }
+    var enemyInterval = 1.0
 
     var scoreLabel: SKLabelNode!
     var score = 0 {
@@ -49,12 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
 
-        gameTimer = Timer.scheduledTimer(
-            timeInterval: 0.35,
-            target: self,
-            selector: #selector(createEnemy),
-            userInfo: nil,
-            repeats: true)
+        startGameTimer()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,6 +79,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         player.position = location
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        var location = touch.location(in: self)
+
+        print("Touch ended", location)
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
@@ -94,6 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if !isGameOver {
             score += 1
         }
+
     }
 
     @objc func createEnemy() {
@@ -109,5 +124,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
+
+        enemyCount += 1
+    }
+
+    func startGameTimer() {
+        gameTimer = Timer.scheduledTimer(
+            timeInterval: enemyInterval,
+            target: self,
+            selector: #selector(createEnemy),
+            userInfo: nil,
+            repeats: true)
     }
 }
