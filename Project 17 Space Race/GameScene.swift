@@ -20,6 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 
+    let possibleEnemies = ["ball", "hammer", "tv"]
+    var isGameOver = false
+    var gameTimer: Timer?
 
     override func didMove(to view: SKView) {
         backgroundColor = .black
@@ -45,9 +48,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
+
+        gameTimer = Timer.init(
+            timeInterval: 0.35,
+            target: self,
+            selector: #selector(createEnemy),
+            userInfo: nil,
+            repeats: true)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+    }
+
+    @objc func createEnemy() {
+        print("Fired")
     }
 }
