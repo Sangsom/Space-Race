@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1BF4581522CC9EA100441DB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF4581422CC9EA100441DB7 /* AppDelegate.swift */; };
 		1BF4581722CC9EA100441DB7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1BF4581622CC9EA100441DB7 /* GameScene.sks */; };
-		1BF4581922CC9EA100441DB7 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1BF4581822CC9EA100441DB7 /* Actions.sks */; };
 		1BF4581B22CC9EA100441DB7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF4581A22CC9EA100441DB7 /* GameScene.swift */; };
 		1BF4581D22CC9EA100441DB7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF4581C22CC9EA100441DB7 /* GameViewController.swift */; };
 		1BF4582022CC9EA100441DB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF4581E22CC9EA100441DB7 /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 		1BF4581122CC9EA100441DB7 /* Project 17 Space Race.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 17 Space Race.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF4581422CC9EA100441DB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF4581622CC9EA100441DB7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		1BF4581822CC9EA100441DB7 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		1BF4581A22CC9EA100441DB7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		1BF4581C22CC9EA100441DB7 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1BF4581F22CC9EA100441DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,7 +60,6 @@
 			children = (
 				1BF4581422CC9EA100441DB7 /* AppDelegate.swift */,
 				1BF4581622CC9EA100441DB7 /* GameScene.sks */,
-				1BF4581822CC9EA100441DB7 /* Actions.sks */,
 				1BF4581A22CC9EA100441DB7 /* GameScene.swift */,
 				1BF4581C22CC9EA100441DB7 /* GameViewController.swift */,
 				1BF4581E22CC9EA100441DB7 /* Main.storyboard */,
@@ -135,7 +132,6 @@
 				1BF4581722CC9EA100441DB7 /* GameScene.sks in Resources */,
 				1BF4582222CC9EA200441DB7 /* Assets.xcassets in Resources */,
 				1BF4582522CC9EA200441DB7 /* LaunchScreen.storyboard in Resources */,
-				1BF4581922CC9EA100441DB7 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.domanov.Project-17-Space-Race";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -322,7 +318,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.domanov.Project-17-Space-Race";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
