@@ -15,11 +15,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemyCount = 0 {
         didSet {
             if enemyCount == 20 {
-                enemyInterval -= 0.1
-                enemyCount = 0
-                print("Incremented interval")
-                gameTimer?.invalidate()
-                startGameTimer()
+                decreaseEnemyInterval()
             }
         }
     }
@@ -136,4 +132,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             userInfo: nil,
             repeats: true)
     }
+
+    func decreaseEnemyInterval() {
+        enemyInterval -= 0.1
+        enemyCount = 0
+        gameTimer?.invalidate()
+        startGameTimer()
+    }
+
 }
