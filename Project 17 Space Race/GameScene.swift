@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var starField: SKEmitterNode!
     var player: SKSpriteNode!
 
@@ -42,7 +42,9 @@ class GameScene: SKScene {
         addChild(scoreLabel)
 
         score = 0
-        
+
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
