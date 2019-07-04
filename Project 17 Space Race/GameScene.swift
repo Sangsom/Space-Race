@@ -45,6 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: 100, y: 384)
         player.physicsBody = SKPhysicsBody(texture: player.texture!, size: player.size)
         player.physicsBody?.contactTestBitMask = 1
+        player.name = "player"
         addChild(player)
 
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
@@ -60,10 +61,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         startGameTimer()
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         var location = touch.location(in: self)
@@ -74,14 +71,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             location.y = 668
         }
 
-        player.position = location
-    }
+        let touchNode = self.atPoint(location)
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        var location = touch.location(in: self)
-
-        print("Touch ended", location)
+        if let name = touchNode.name {
+            if name == "player" {
+                player.position = location
+            }
+        }
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
